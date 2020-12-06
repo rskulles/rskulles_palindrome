@@ -1,6 +1,24 @@
-require "rskulles_palindrome/version"
+# frozen_string_literal: true
 
-module RskullesPalindrome
-  class Error < StandardError; end
-  # Your code goes here...
+require 'rskulles_palindrome/version'
+
+class Error < StandardError; end
+
+# Your code goes here...
+#
+class String
+  def palindrome?
+    processed_content == processed_content.reverse
+  end
+
+  private
+
+  def processed_content
+    letters.downcase
+  end
+
+  def letters
+    scan(/[a-z]/i).join
+  end
+
 end
